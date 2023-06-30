@@ -8,6 +8,7 @@ import org.jetbrains.exposed.dao.id.EntityID
 object CrmUsers : BaseLongIdTable("crm_user_info") {
     val email = varchar("email", 100)
     val type = varchar("type", 20)
+    val isEmailConfirmed = bool("is_email_confirmed")
 }
 
 class CrmUser(id: EntityID<Long>) : BaseLongEntity(id, CrmUsers) {
@@ -15,6 +16,13 @@ class CrmUser(id: EntityID<Long>) : BaseLongEntity(id, CrmUsers) {
 
     var email by CrmUsers.email
     var type by CrmUsers.type
+    var isEmailConfirmed by CrmUsers.isEmailConfirmed
+
+    fun canChangeEmail() = if (isEmailConfirmed) {
+        "Can't change a confirmed email"
+    } else {
+        null
+    }
 }
 
 object CrmCompanies : BaseLongIdTable("crm_company_info") {
