@@ -27,6 +27,7 @@ class CRMUserServiceTest : MockTablesTest(CrmUsers) {
             CrmUser.new {
                 email = userEmail
                 type = UserType.CUSTOMER.name
+                isEmailConfirmed = Random.nextBoolean()
             }
         }
 
@@ -42,6 +43,7 @@ class CRMUserServiceTest : MockTablesTest(CrmUsers) {
             CrmUser.new {
                 email = userEmail
                 type = UserType.CUSTOMER.name
+                isEmailConfirmed = Random.nextBoolean()
             }
         }
 
@@ -56,6 +58,7 @@ class CRMUserServiceTest : MockTablesTest(CrmUsers) {
             CrmUser.new {
                 email = faker.internet().emailAddress()
                 type = UserType.CUSTOMER.name
+                isEmailConfirmed = true
             }
         }
         val newEmail = faker.internet().emailAddress()
