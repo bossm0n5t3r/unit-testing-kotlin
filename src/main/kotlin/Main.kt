@@ -1,5 +1,10 @@
-import crm.crmRun
+import crm.CRMApplication
+import crm.crmKoinModule
+import org.koin.core.context.startKoin
 
 fun main(args: Array<String>) {
-    crmRun()
+    startKoin {
+        modules(crmKoinModule)
+    }
+    CRMApplication().run()
 }
