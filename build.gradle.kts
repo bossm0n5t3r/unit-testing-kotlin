@@ -1,7 +1,7 @@
 plugins {
-    kotlin("jvm") version "1.8.21"
+    kotlin("jvm") version "1.9.0"
     application
-    id("org.jlleitschuh.gradle.ktlint") version "11.3.2"
+    id("org.jlleitschuh.gradle.ktlint") version "11.5.0"
 }
 
 group = "me.bossm0n5t3r"
@@ -12,8 +12,8 @@ repositories {
 }
 
 dependencies {
-    // Kodein
-    implementation("org.kodein.di:kodein-di:7.19.0")
+    // Koin
+    implementation("io.insert-koin:koin-core:3.4.2")
 
     // Exposed
     implementation("org.jetbrains.exposed:exposed-core:0.41.1")
@@ -26,7 +26,7 @@ dependencies {
     testImplementation(kotlin("test"))
     testImplementation("org.assertj:assertj-core:3.24.2")
     testImplementation("io.mockk:mockk:1.13.5")
-    testImplementation("net.datafaker:datafaker:1.9.0")
+    testImplementation("net.datafaker:datafaker:2.0.1")
 }
 
 tasks.test {
@@ -42,5 +42,5 @@ application {
 }
 
 ktlint {
-    version.set("0.48.2")
+    version.set("0.50.0")
 }
