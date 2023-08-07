@@ -18,11 +18,7 @@ class CrmUser(id: EntityID<Long>) : BaseLongEntity(id, CrmUsers) {
     var type by CrmUsers.type
     var isEmailConfirmed by CrmUsers.isEmailConfirmed
 
-    fun canChangeEmail() = if (isEmailConfirmed) {
-        "Can't change a confirmed email"
-    } else {
-        null
-    }
+    fun canChangeEmail() = isEmailConfirmed
 }
 
 object CrmCompanies : BaseLongIdTable("crm_company_info") {

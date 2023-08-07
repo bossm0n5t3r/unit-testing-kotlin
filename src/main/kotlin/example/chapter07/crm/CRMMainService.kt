@@ -9,10 +9,7 @@ class CRMMainService(
         // 데이터베이스에서 사용자의 현재 이메일과 유형 검색
         val user = crmUserService.findById(userId) ?: return
 
-        val errorMessage = user.canChangeEmail()
-        if (errorMessage != null) {
-            error(errorMessage)
-        }
+        require(user.canChangeEmail()) { "Can't change a confirmed email" }
 
         // 새 이메일의 도메인 이름에 따라 사용자 유형 설정
         val crmCompany = crmCompanyService.getCompany() ?: return

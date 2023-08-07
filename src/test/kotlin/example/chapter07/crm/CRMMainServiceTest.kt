@@ -34,7 +34,7 @@ class CRMMainServiceTest : MockTablesTest(CrmUsers, CrmCompanies) {
         val userId = faker.number().randomNumber()
         val newEmail = faker.internet().emailAddress()
         every { crmUserService.findById(userId) } returns mockk {
-            every { canChangeEmail() } returns null
+            every { canChangeEmail() } returns true
         }
         every { crmCompanyService.getCompany() } returns null
 
@@ -49,7 +49,7 @@ class CRMMainServiceTest : MockTablesTest(CrmUsers, CrmCompanies) {
         val newEmail = faker.internet().emailAddress()
 
         val user = mockk<CrmUser> {
-            every { canChangeEmail() } returns null
+            every { canChangeEmail() } returns true
         }
         val company = mockk<CrmCompany>()
         every { crmUserService.findById(userId) } returns user
