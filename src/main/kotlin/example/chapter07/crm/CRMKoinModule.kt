@@ -1,6 +1,6 @@
-package crm
+package example.chapter07.crm
 
-import common.databaseModule
+import example.chapter07.common.databaseModule
 import org.koin.dsl.module
 
 val crmKoinModule = module {

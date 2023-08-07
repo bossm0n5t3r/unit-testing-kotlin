@@ -1,8 +1,8 @@
-package crm
+package example.chapter07.crm
 
-import common.BaseLongEntity
-import common.BaseLongEntityClass
-import common.BaseLongIdTable
+import example.chapter07.common.BaseLongEntity
+import example.chapter07.common.BaseLongEntityClass
+import example.chapter07.common.BaseLongIdTable
 import org.jetbrains.exposed.dao.id.EntityID
 
 object CrmUsers : BaseLongIdTable("crm_user_info") {

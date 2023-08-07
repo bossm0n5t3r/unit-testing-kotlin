@@ -1,4 +1,4 @@
-package crm
+package example.chapter07.crm
 
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.transactions.transaction

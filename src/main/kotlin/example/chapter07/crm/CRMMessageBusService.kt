@@ -1,4 +1,4 @@
-package crm
+package example.chapter07.crm
 
 class CRMMessageBusService {
     fun sendEmailChangedMessage(userId: Long, newEmail: String) {

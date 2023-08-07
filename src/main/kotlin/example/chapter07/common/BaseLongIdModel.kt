@@ -1,4 +1,4 @@
-package common
+package example.chapter07.common
 
 import kotlinx.datetime.toKotlinLocalDateTime
 import org.jetbrains.exposed.dao.EntityChangeType

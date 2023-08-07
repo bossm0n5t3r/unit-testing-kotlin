@@ -1,4 +1,4 @@
-package crm
+package example.chapter07.crm
 
 import common.MockTablesTest
 import io.mockk.every

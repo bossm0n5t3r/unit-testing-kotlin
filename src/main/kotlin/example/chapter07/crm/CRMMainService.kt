@@ -1,4 +1,4 @@
-package crm
+package example.chapter07.crm
 
 class CRMMainService(
     private val crmUserService: CRMUserService,

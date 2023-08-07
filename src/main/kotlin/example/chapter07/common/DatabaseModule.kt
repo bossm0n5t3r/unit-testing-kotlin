@@ -1,4 +1,4 @@
-package common
+package example.chapter07.common
 
 import org.jetbrains.exposed.sql.Database
 import org.koin.dsl.module
