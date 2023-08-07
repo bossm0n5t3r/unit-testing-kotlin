@@ -24,6 +24,7 @@ dependencies {
     runtimeOnly("com.h2database:h2:2.1.214")
 
     testImplementation(kotlin("test"))
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
     testImplementation("org.assertj:assertj-core:3.24.2")
     testImplementation("io.mockk:mockk:1.13.5")
     testImplementation("net.datafaker:datafaker:2.0.1")
