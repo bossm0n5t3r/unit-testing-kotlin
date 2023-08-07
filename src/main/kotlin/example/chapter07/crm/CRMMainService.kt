@@ -5,23 +5,20 @@ class CRMMainService(
     private val crmCompanyService: CRMCompanyService,
     private val crmMessageBusService: CRMMessageBusService,
 ) {
-    @Suppress("TooGenericExceptionThrown")
     fun changeEmail(userId: Long, newEmail: String) {
         // 데이터베이스에서 사용자의 현재 이메일과 유형 검색
         val user = crmUserService.findById(userId) ?: return
 
-        val error = user.canChangeEmail()
-        if (error != null) {
-            throw Exception(error)
+        val errorMessage = user.canChangeEmail()
+        if (errorMessage != null) {
+            error(errorMessage)
         }
 
         // 새 이메일의 도메인 이름에 따라 사용자 유형 설정
-        val crmCompany = crmCompanyService.getCompany()
-        if (crmCompany != null) {
-            crmUserService.updateUser(user, newEmail, crmCompany)
+        val crmCompany = crmCompanyService.getCompany() ?: return
+        crmUserService.updateUser(user, newEmail, crmCompany)
 
-            // 메시지 버스에 알림 전송
-            crmMessageBusService.sendEmailChangedMessage(userId, newEmail)
-        }
+        // 메시지 버스에 알림 전송
+        crmMessageBusService.sendEmailChangedMessage(userId, newEmail)
     }
 }
